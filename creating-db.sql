@@ -126,3 +126,11 @@
 --     ON UPDATE NO ACTION
 -- )
 -- ENGINE = InnoDB;
+
+-- COMANDOS NOVOS PARA EXECUTAR
+ALTER TABLE `library_db`.`tb_author` 
+ADD COLUMN `email` VARCHAR(45) NOT NULL AFTER `country`,
+ADD COLUMN `password` VARCHAR(255) NOT NULL AFTER `email`;
+
+ALTER TABLE `library_db`.`tb_author` 
+CHANGE COLUMN `country` `country` VARCHAR(40) NOT NULL ;
