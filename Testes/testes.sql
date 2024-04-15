@@ -76,3 +76,31 @@
 
 -- deletando uma categoria
 -- CALL delete_category(3, "Fantasy");
+
+-- ====================> TESTES DE CHAMADAS DAS SP de UPDATE <====================
+
+-- <<<INSERINDO DADOS DE TESTE PARA SEREM ATUALIZADOS>>>
+-- inserindo o autor teste
+-- adicionando um nome incorreto
+CALL insert_author("J.R.R. Williams", null, "J.R.R. Tolkien was an English writer, poet, and philologist. He is best known as the author of the high fantasy works.", "United Kingdom", "tolkien@email.com", "middleearth");
+
+-- inserindo uma editora teste
+-- inserindo a data de fundação incorreta
+-- correção: 1989
+-- CALL insert_publisher("HarperCollins Publishers", "United States of America", 2023, "harpercollins@email.com");
+
+-- inserindo a categoria teste
+-- nome escrito incorretamente
+-- correção: Fantasy
+-- CALL insert_category("Fantasi");
+
+-- inserindo o livro teste
+-- inserindo uma sinopse incorreta
+-- correção: "The Hobbit is a fantasy novel by J.R.R. Tolkien. It follows the quest of home-loving hobbit Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon."
+-- CALL insert_book("The Hobbit", "The Hobbit is a science fiction novel by J.R.R. Tolkien. It follows the quest of space-faring hobbit Bilbo Baggins to win a share of the treasure guarded by aliens on Mars.", 1, 1, 1);
+
+-- inserindo um usuario teste
+-- inserindo um email no incorreto
+-- correção: marshallBruceEmnm@email.com
+-- CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
+
