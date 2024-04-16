@@ -116,7 +116,7 @@ CREATE TABLE IF NOT EXISTS `tb_loan` (
     REFERENCES `tb_user` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_tb_loan_return1`
+  CONSTRAINT `fk_tb_loan_retutb_loanrn1`
     FOREIGN KEY (`id_return`)
     REFERENCES `tb_return` (`id`)
     ON DELETE NO ACTION
