@@ -10,16 +10,55 @@ CREATE PROCEDURE update_author(
     IN new_password VARCHAR(255)
 )
 BEGIN
-    UPDATE library_db.tb_author
-    SET 
-        name = new_name,
-        pseudonym = new_pseudonym,
-        biography = new_biography,
-        country = new_country,
-        email = new_email,
-        password = new_password
-    WHERE
-        id = id_author;
+
+    DECLARE name_changed BOOL DEFAULT FALSE;
+    DECLARE pseudonym_changed BOOL DEFAULT FALSE;
+    DECLARE biography_changed BOOL DEFAULT FALSE;
+    DECLARE country_changed BOOL DEFAULT FALSE;
+    DECLARE email_changed BOOL DEFAULT FALSE;
+    DECLARE password_changed BOOL DEFAULT FALSE;
+    
+    IF new_name IS NOT NULL THEN
+		SET name_changed = TRUE;
+    END IF;
+    
+     IF new_pseudonym IS NOT NULL THEN
+		SET pseudonym_changed = TRUE;
+    END IF;
+    
+     IF new_biography IS NOT NULL THEN
+		SET biography_changed = TRUE;
+    END IF;
+    
+     IF new_country IS NOT NULL THEN
+		SET country_changed = TRUE;
+    END IF;
+    
+     IF new_email IS NOT NULL THEN
+		SET email_changed = TRUE;
+    END IF;
+    
+     IF new_password IS NOT NULL THEN
+		SET password_changed = TRUE;
+    END IF;
+    
+    IF name_changed OR pseudonym_changed OR biography_changed OR country_changed OR email_changed OR password_changed THEN
+		UPDATE library_db.tb_author
+		SET 
+			name = IF(name_changed, new_name, name),
+            pseudonym = IF(pseudonym_changed, new_pseudonym, name),
+            biography = IF(biography_changed, new_biography, name),
+            country = IF(country_changed, new_country, name),
+            email = IF(email_changed, new_email, name),
+            password = IF(password_changed, new_password, name)
+		WHERE
+			id = id_author;
+            
+	ELSE
+		SELECT 'No data provided for update';
+    END IF;
+    
+    
 END $$
 DELIMITER ;
 
@@ -270,10 +309,14 @@ CREATE PROCEDURE update_category(
     IN new_name VARCHAR(200)
 )
 BEGIN
-    UPDATE library_db.tb_category
-    SET 
-        name = new_name
-    WHERE
-        id = id_category;
+	IF new_name IS NOT NULL THEN
+		UPDATE library_db.tb_category
+		SET 
+			name = new_name
+		WHERE
+			id = id_category;
+	ELSE
+		SELECT 'No data provided for update';
+	END IF;
 END $$
 DELIMITER ;
