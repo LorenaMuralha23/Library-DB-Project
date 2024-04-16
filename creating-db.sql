@@ -1,33 +1,33 @@
--- CREATE DATABASE IF NOT EXISTS library_db;
+--  -- CREATE DATABASE IF NOT EXISTS library_db;
 
--- USE library_db;
+-- --  USE library_db;
 
--- -----------------------------------------------------
--- Table `library_db`.`tb_author`
--- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS `tb_author` (
---   `id` INT NOT NULL AUTO_INCREMENT,
---   `name` VARCHAR(255) NOT NULL,
---   `pseudonym` VARCHAR(255) NULL,
---   `biography` VARCHAR(150) NULL,
---   `country` VARCHAR(20) NOT NULL,
---   PRIMARY KEY (`id`)
--- )
--- ENGINE = InnoDB;
+-- -- -- -----------------------------------------------------
+-- -- -- Table `library_db`.`tb_author`
+-- -- -- -----------------------------------------------------
+-- --  CREATE TABLE IF NOT EXISTS `tb_author` (
+-- --    `id` INT NOT NULL AUTO_INCREMENT,
+-- --    `name` VARCHAR(255) NOT NULL,
+-- --    `pseudonym` VARCHAR(255) NULL,
+-- --    `biography` VARCHAR(150) NULL,
+-- --    `country` VARCHAR(20) NOT NULL,
+-- --    PRIMARY KEY (`id`)
+-- --  )
+-- --  ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `library_db`.`category`
--- -----------------------------------------------------
--- CREATE TABLE IF NOT EXISTS `tb_category` (
---   `id` INT NOT NULL AUTO_INCREMENT,
---   `name` VARCHAR(100) NOT NULL,
---   PRIMARY KEY (`id`)
--- )
--- ENGINE = InnoDB;
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`category`
+-- -- -----------------------------------------------------
+-- -- CREATE TABLE IF NOT EXISTS `tb_category` (
+-- --   `id` INT NOT NULL AUTO_INCREMENT,
+-- --   `name` VARCHAR(100) NOT NULL,
+-- --   PRIMARY KEY (`id`)
+-- -- )
+-- -- ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `library_db`.`tb_publisher`
--- -----------------------------------------------------
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`tb_publisher`
+-- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS `tb_publisher` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `name` VARCHAR(255) NOT NULL,
@@ -38,9 +38,9 @@
 -- )
 -- ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `library_db`.`tb_book`
--- -----------------------------------------------------
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`tb_book`
+-- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS `tb_book` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `title` VARCHAR(50) NOT NULL,
@@ -71,9 +71,9 @@
 -- ENGINE = InnoDB;
 
 
--- -----------------------------------------------------
--- Table `library_db`.`tb_user`
--- -----------------------------------------------------
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`tb_user`
+-- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS `tb_user` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `name` VARCHAR(255) NOT NULL,
@@ -84,9 +84,9 @@
 -- )
 -- ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `library_db`.`return`
--- -----------------------------------------------------
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`return`
+-- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS `tb_return` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `return_date` DATE NOT NULL,
@@ -94,9 +94,9 @@
 -- )
 -- ENGINE = InnoDB;
 
--- -----------------------------------------------------
--- Table `library_db`.`tb_loan`
--- -----------------------------------------------------
+-- -- -----------------------------------------------------
+-- -- Table `library_db`.`tb_loan`
+-- -- -----------------------------------------------------
 -- CREATE TABLE IF NOT EXISTS `tb_loan` (
 --   `id` INT NOT NULL AUTO_INCREMENT,
 --   `loan_date` DATE NOT NULL,
@@ -133,9 +133,10 @@
 
 
 
--- COMANDOS NOVOS PARA EXECUTAR
+-- -- COMANDOS NOVOS PARA EXECUTAR
 -- ALTER TABLE `library_db`.`tb_category` 
 -- CHANGE COLUMN `name` `name` VARCHAR(200) NOT NULL ;
 
-ALTER TABLE `library_db`.`tb_author` 
-CHANGE COLUMN `country` `country` VARCHAR(300) NOT NULL ;
+-- ALTER TABLE `library_db`.`tb_author` 
+-- CHANGE COLUMN `country` `country` VARCHAR(300) NOT NULL ;
+
