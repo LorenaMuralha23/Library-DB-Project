@@ -46,11 +46,11 @@ BEGIN
 		UPDATE library_db.tb_author
 		SET 
 			name = IF(name_changed, new_name, name),
-            pseudonym = IF(pseudonym_changed, new_pseudonym, name),
-            biography = IF(biography_changed, new_biography, name),
-            country = IF(country_changed, new_country, name),
-            email = IF(email_changed, new_email, name),
-            password = IF(password_changed, new_password, name)
+            pseudonym = IF(pseudonym_changed, new_pseudonym, pseudonym),
+            biography = IF(biography_changed, new_biography, biography),
+            country = IF(country_changed, new_country, country),
+            email = IF(email_changed, new_email, email),
+            password = IF(password_changed, new_password, password)
 		WHERE
 			id = id_author;
             
@@ -73,9 +73,7 @@ CREATE PROCEDURE update_user(
 )
 BEGIN
     DECLARE name_changed BOOL DEFAULT FALSE;
-    DECLARE pseudonym_changed BOOL DEFAULT FALSE;
-    DECLARE biography_changed BOOL DEFAULT FALSE;
-    DECLARE country_changed BOOL DEFAULT FALSE;
+    DECLARE username_changed BOOL DEFAULT FALSE;
     DECLARE email_changed BOOL DEFAULT FALSE;
     DECLARE password_changed BOOL DEFAULT FALSE;
     
@@ -83,16 +81,8 @@ BEGIN
         SET name_changed = TRUE;
     END IF;
     
-    IF new_pseudonym IS NOT NULL THEN
-        SET pseudonym_changed = TRUE;
-    END IF;
-    
-    IF new_biography IS NOT NULL THEN
-        SET biography_changed = TRUE;
-    END IF;
-    
-    IF new_country IS NOT NULL THEN
-        SET country_changed = TRUE;
+    IF new_username IS NOT NULL THEN
+        SET username_changed = TRUE;
     END IF;
     
     IF new_email IS NOT NULL THEN
@@ -103,13 +93,11 @@ BEGIN
         SET password_changed = TRUE;
     END IF;
     
-    IF name_changed OR pseudonym_changed OR biography_changed OR country_changed OR email_changed OR password_changed THEN
+    IF name_changed OR username_changed OR email_changed OR password_changed THEN
         UPDATE library_db.tb_user
         SET 
             name = IF(name_changed, new_name, name),
-            pseudonym = IF(pseudonym_changed, new_pseudonym, pseudonym),
-            biography = IF(biography_changed, new_biography, biography),
-            country = IF(country_changed, new_country, country),
+			username = IF(username_changed, new_username, username),
             email = IF(email_changed, new_email, email),
             password = IF(password_changed, new_password, password)
         WHERE
@@ -196,7 +184,7 @@ BEGIN
     END IF;
     
 	IF id_category_changed IS NOT NULL THEN
-		SET id_author_changed = TRUE;
+		SET id_category_changed = TRUE;
     END IF;
     
     IF id_publisher_changed IS NOT NULL THEN
