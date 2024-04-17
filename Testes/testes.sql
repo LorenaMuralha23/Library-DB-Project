@@ -82,7 +82,7 @@
 -- <<<INSERINDO DADOS DE TESTE PARA SEREM ATUALIZADOS>>>
 -- inserindo o autor teste
 -- adicionando um nome incorreto
-CALL insert_author("J.R.R. Williams", null, "J.R.R. Tolkien was an English writer, poet, and philologist. He is best known as the author of the high fantasy works.", "United Kingdom", "tolkien@email.com", "middleearth");
+-- CALL insert_author("J.R.R. Williams", null, "J.R.R. Tolkien was an English writer, poet, and philologist. He is best known as the author of the high fantasy works.", "United Kingdom", "tolkien@email.com", "middleearth");
 
 -- inserindo uma editora teste
 -- inserindo a data de fundação incorreta
@@ -104,3 +104,10 @@ CALL insert_author("J.R.R. Williams", null, "J.R.R. Tolkien was an English write
 -- correção: marshallBruceEmnm@email.com
 -- CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
 
+
+-- --------------------------------------
+-- INSERINDO USUÁRIOS APÓS AS TRIGGERS
+-- --------------------------------------
+CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
+
+CALL insert_loan();
