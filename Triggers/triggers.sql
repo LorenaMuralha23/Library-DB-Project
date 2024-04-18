@@ -9,11 +9,11 @@
 -- REGRA: Ao realizar o empréstimo, o usuário terá até 30 dias para a devolução do livro
 -- -----------------------------------------------------
 DELIMITER $$
-CREATE TRIGGER UPDATE_DUE_DATE_AFTER_INSERT
-AFTER INSERT ON tb_loan
+CREATE TRIGGER UPDATE_DUE_DATE_BEFORE_INSERT
+BEFORE INSERT ON tb_loan
 FOR EACH ROW
 BEGIN
-    UPDATE library_db.tb_loan SET tb_loan.due_date = DATE_ADD(tb_loan.due_date, INTERVAL 30 DAY);
+    SET NEW.due_date = DATE_ADD(NEW.loan_date, INTERVAL 30 DAY);
 END$$
 DELIMITER ;
 

@@ -35,14 +35,23 @@
 -- inserindo um usuario 2
 -- CALL insert_user('Michael Scofield', 'mscofield', 'michael@example.com', 'prisonbreak456');
 
--- inserindo empréstimo do usuário 1
+-- inserindo um usuário 3
+-- CALL insert_user('Chris Brown', 'cb', 'cb@example.com', '11:11released');
 
+-- DROP TRIGGER IF EXISTS UPDATE_DUE_DATE_BEFORE_INSERT;
+-- DROP TRIGGER IF EXISTS VERIFY_NUM_LOAN_BEFORE_INSERT;
+
+-- inserindo empréstimo do usuário 1
+ -- CALL insert_loan('2024-04-12', null, 0.0, 1, NULL, 1);
 
 -- inserindo empréstimo do usuário 2
+-- CALL insert_loan(NOW(), null, 0.0, 2, NULL, 1);
 
+-- inserindo empréstimo do usuário 3
+-- CALL insert_loan(NOW(), null, 0.0, 3, NULL, 1);
 
--- inserindo a devolução do empréstimo 3
-
+-- inserindo a devolução do empréstimo 2
+-- CALL insert_return('2024-04-23', 1);
 
 -- ====================> TESTES DE CHAMADAS DAS SP de delete <====================
 
@@ -108,6 +117,5 @@
 -- --------------------------------------
 -- INSERINDO USUÁRIOS APÓS AS TRIGGERS
 -- --------------------------------------
-CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
+-- CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
 
-CALL insert_loan();

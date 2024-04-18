@@ -135,3 +135,13 @@ CHANGE COLUMN `name` `name` VARCHAR(200) NOT NULL ;
 
 ALTER TABLE `library_db`.`tb_author` 
 CHANGE COLUMN `country` `country` VARCHAR(300) NOT NULL ;
+
+ALTER TABLE `library_db`.`tb_loan` 
+DROP FOREIGN KEY `fk_tb_loan_return1`;
+ALTER TABLE `library_db`.`tb_loan` 
+CHANGE COLUMN `id_return` `id_return` INT NULL ;
+ALTER TABLE `library_db`.`tb_loan` 
+ADD CONSTRAINT `fk_tb_loan_return1`
+  FOREIGN KEY (`id_return`)
+  REFERENCES `library_db`.`tb_return` (`id`);
+

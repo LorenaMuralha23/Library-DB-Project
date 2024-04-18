@@ -93,13 +93,20 @@ DELIMITER ;
 
 -- ====================> SP para inserir devoluções
 DELIMITER $$
-
 CREATE PROCEDURE insert_return(
-   IN return_date DATE
+   IN return_date DATE,
+   IN loan_id INT
 )
 BEGIN
+	DECLARE new_return_id INT;
+
    INSERT INTO library_db.tb_return (return_date) 
    VALUES (return_date);
+   
+   SET new_return_id = LAST_INSERT_ID();
+
+   UPDATE library_db.tb_loan SET id_return = new_return_id WHERE id = loan_id;
 END$$
 
 DELIMITER ;
+
