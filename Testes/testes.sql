@@ -60,6 +60,9 @@ CALL delete_loan(6, 4, 3, '2024-04-11');
 -- Chamada de teste para delete_return
 CALL delete_return(1);
 
+-- Chamada de teste para delete_book
+CALL delete_book(3);
+
 -- Chamada de teste para delete_author
 CALL delete_author(3);
 
@@ -69,11 +72,8 @@ CALL delete_category(3, 'Fiction');
 -- Chamada de teste para delete_publisher
 CALL delete_publisher(3);
 
--- Chamada de teste para delete_book
-CALL delete_book(3);
-
 -- Chamada de teste para delete_user
-CALL delete_user(4);
+CALL delete_user(9);
 
 -- -----------------------------------------------------
 -- TESTES DAS VIEWS

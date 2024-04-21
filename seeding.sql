@@ -85,8 +85,6 @@ CALL insert_book('The Old Man and the Sea', 'A novella by Ernest Hemingway.', 14
 
 CALL insert_loan('2024-04-12', '2024-05-12', 0.0, 12, NULL, 12);
 CALL insert_loan('2024-04-13', '2024-05-13', 0.0, 13, NULL, 13);
-CALL insert_loan('2024-04-14', '2024-05-14', 0.0, 14, NULL, 14);
-CALL insert_loan('2024-04-15', '2024-05-15', 0.0, 15, NULL, 15);
 
 -- Inserção de devoluções
 
@@ -95,5 +93,4 @@ CALL insert_return('2024-05-10', 10);
 CALL insert_return('2024-05-11', 11);
 CALL insert_return('2024-05-12', 12);
 CALL insert_return('2024-05-13', 13);
-CALL insert_return('2024-05-14', 14);
-CALL insert_return('2024-05-15', 15);
+

@@ -140,61 +140,11 @@ ALTER TABLE `library_db`.`tb_author`
 CHANGE COLUMN `country` `country` VARCHAR(300) NOT NULL ;
 
 ALTER TABLE `library_db`.`tb_loan` 
-DROP FOREIGN KEY `fk_tb_loan_return1`;
+DROP FOREIGN KEY `fk_tb_loan_retutb_loanrn1`;
 ALTER TABLE `library_db`.`tb_loan` 
 CHANGE COLUMN `id_return` `id_return` INT NULL ;
 ALTER TABLE `library_db`.`tb_loan` 
-ADD CONSTRAINT `fk_tb_loan_return1`
+ADD CONSTRAINT `fk_tb_loan_retutb_loanrn1`
   FOREIGN KEY (`id_return`)
   REFERENCES `library_db`.`tb_return` (`id`);
-
--- Alterando a tabela tb_loan para adicionar ON DELETE CASCADE
-ALTER TABLE `library_db`.`tb_loan`
-DROP FOREIGN KEY `fk_tb_loan_return1`;
-
-ALTER TABLE `library_db`.`tb_loan`
-ADD CONSTRAINT `fk_tb_loan_return1`
-  FOREIGN KEY (`id_return`)
-  REFERENCES `library_db`.`tb_return` (`id`)
-  ON DELETE CASCADE;
-
--- Alterando a tabela tb_book para adicionar ON DELETE CASCADE
-ALTER TABLE `library_db`.`tb_book`
-DROP FOREIGN KEY `fk_tb_book_tb_author`;
-
-ALTER TABLE `library_db`.`tb_book`
-ADD CONSTRAINT `fk_tb_book_tb_author`
-  FOREIGN KEY (`id_author`)
-  REFERENCES `library_db`.`tb_author` (`id`)
-  ON DELETE CASCADE;
-
--- Alterando a tabela tb_loan para adicionar ON DELETE CASCADE
-ALTER TABLE `library_db`.`tb_loan`
-DROP FOREIGN KEY `fk_tb_loan_tb_user1`;
-
-ALTER TABLE `library_db`.`tb_loan`
-ADD CONSTRAINT `fk_tb_loan_tb_user1`
-  FOREIGN KEY (`id_user`)
-  REFERENCES `library_db`.`tb_user` (`id`)
-  ON DELETE CASCADE;
-
--- Alterando a tabela tb_book para adicionar ON DELETE CASCADE
-ALTER TABLE `library_db`.`tb_book`
-DROP FOREIGN KEY `fk_tb_book_tb_author`;
-
-ALTER TABLE `library_db`.`tb_book`
-ADD CONSTRAINT `fk_tb_book_tb_author`
-  FOREIGN KEY (`id_author`)
-  REFERENCES `library_db`.`tb_author` (`id`)
-  ON DELETE CASCADE;
-
--- Alterando a tabela tb_loan para adicionar ON DELETE CASCADE
-ALTER TABLE `library_db`.`tb_loan`
-DROP FOREIGN KEY `fk_tb_loan_tb_book1`;
-
-ALTER TABLE `library_db`.`tb_loan`
-ADD CONSTRAINT `fk_tb_loan_tb_book1`
-  FOREIGN KEY (`id_book`)
-  REFERENCES `library_db`.`tb_book` (`id`)
-  ON DELETE CASCADE;
 
