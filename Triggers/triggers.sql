@@ -2,8 +2,6 @@
 -- TRIGGERS DO SISTEMA
 -- -----------------------------------------------------
 
--- Criando o trigger
-
 -- -----------------------------------------------------
 -- TRIGGER PARA ATUALIZAR A DATA DE DEVOLUÇÃO
 -- REGRA: Ao realizar o empréstimo, o usuário terá até 30 dias para a devolução do livro

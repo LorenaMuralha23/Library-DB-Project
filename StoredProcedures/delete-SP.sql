@@ -1,6 +1,11 @@
-/* STORED PROCEDURES PARA DELETE */
+-- -----------------------------------------------------
+-- STORED PROCEDURE DE REMOÇÃO
+-- -----------------------------------------------------
 
--- ====================> SP para deletar um usuário
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR USUÁRIOS
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_user(
@@ -11,7 +16,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar um autor 
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR AUTORES
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_author(
@@ -22,7 +29,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar categorias
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR CATEGORIAS
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_category(
@@ -34,7 +43,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar um editora
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR EDITORAS
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_publisher(
@@ -45,7 +56,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar livros 
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR LIVROS
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_book(
@@ -56,7 +69,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar empréstimos
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR EMPRÉSTIMOS
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_loan(
@@ -70,7 +85,9 @@ BEGIN
 END$$
 DELIMITER ;
 
--- ====================> SP para deletar devoluções
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA DELETAR DEVOLUÇÕES
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE delete_return(

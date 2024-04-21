@@ -1,5 +1,8 @@
--- ====================> SP para atualizar um autor
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR AUTORES
+-- -----------------------------------------------------
 DELIMITER $$
+
 CREATE PROCEDURE update_author(
     IN id_author INT,
     IN new_name VARCHAR(255),
@@ -22,23 +25,23 @@ BEGIN
 		SET name_changed = TRUE;
     END IF;
     
-     IF new_pseudonym IS NOT NULL THEN
+    IF new_pseudonym IS NOT NULL THEN
 		SET pseudonym_changed = TRUE;
     END IF;
     
-     IF new_biography IS NOT NULL THEN
+    IF new_biography IS NOT NULL THEN
 		SET biography_changed = TRUE;
     END IF;
     
-     IF new_country IS NOT NULL THEN
+    IF new_country IS NOT NULL THEN
 		SET country_changed = TRUE;
     END IF;
     
-     IF new_email IS NOT NULL THEN
+    IF new_email IS NOT NULL THEN
 		SET email_changed = TRUE;
     END IF;
     
-     IF new_password IS NOT NULL THEN
+    IF new_password IS NOT NULL THEN
 		SET password_changed = TRUE;
     END IF;
     
@@ -57,13 +60,15 @@ BEGIN
 	ELSE
 		SELECT 'No data provided for update';
     END IF;
-    
-    
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar um usuario
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR USUÁRIOS
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_user(
     IN id_user INT,
     IN new_name VARCHAR(255),
@@ -106,10 +111,14 @@ BEGIN
         SELECT 'No data provided for update';
     END IF;
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar uma editora
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR EDITORAS
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_publisher(
     IN id_publisher INT,
     IN new_name VARCHAR(255),
@@ -152,10 +161,14 @@ BEGIN
         SELECT 'No data provided for update';
     END IF;
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar um livro
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR LIVROS
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_book(
     IN id_book INT,
     IN new_title VARCHAR(50),
@@ -171,23 +184,23 @@ BEGIN
     DECLARE id_category_changed BOOL DEFAULT NOT NULL;
     DECLARE id_publisher_changed BOOL DEFAULT NOT NULL;
 	
-    IF title_changed IS NOT NULL THEN
+    IF new_title IS NOT NULL THEN
 		SET title_changed = TRUE;
     END IF;
 
-	IF synopsis_changed IS NOT NULL THEN
+	IF new_synopsis IS NOT NULL THEN
 		SET synopsis_changed = TRUE;
     END IF;
 
-	IF id_author_changed IS NOT NULL THEN
+	IF new_id_author IS NOT NULL THEN
 		SET id_author_changed = TRUE;
     END IF;
     
-	IF id_category_changed IS NOT NULL THEN
+	IF new_id_category IS NOT NULL THEN
 		SET id_category_changed = TRUE;
     END IF;
     
-    IF id_publisher_changed IS NOT NULL THEN
+    IF new_id_publisher IS NOT NULL THEN
 		SET id_publisher_changed = TRUE;
     END IF;
 	
@@ -205,10 +218,14 @@ BEGIN
 			SELECT 'No data provided for update';
     END IF;
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar empréstimos
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR EMPRÉSTIMOS
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_loan(
     IN id_loan INT,
     IN new_loan_date DATE,
@@ -265,10 +282,14 @@ BEGIN
         SELECT 'No data provided for update.';
     END IF;
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar devoluções
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR DEVOLUÇÕES
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_return(
     IN id_return INT,
     IN new_return_date DATE
@@ -288,10 +309,14 @@ BEGIN
         SELECT 'No data provided for update';
     END IF;
 END $$
-DELIMITER ;
 
--- ====================> SP para atualizar categorias
 DELIMITER $$
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA ATUALIZAR CATEGORIAS
+-- -----------------------------------------------------
+DELIMITER $$
+
 CREATE PROCEDURE update_category(
     IN id_category INT,
     IN new_name VARCHAR(200)
@@ -307,4 +332,6 @@ BEGIN
 		SELECT 'No data provided for update';
 	END IF;
 END $$
-DELIMITER ;
+
+DELIMITER $$
+

@@ -1,6 +1,11 @@
-/* STORED PROCEDURES PARA INSERT */
+-- -----------------------------------------------------
+-- STORED PROCEDURE DE INSERÇÃO
+-- -----------------------------------------------------
 
-/* ====================> SP para inserir um usuário */
+
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UM USUÁRIO
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE insert_user(
@@ -15,7 +20,9 @@ END$$
 
 DELIMITER ;
 
-/* ====================> SP para inserir um autor */
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UM AUTOR
+-- -----------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE insert_author(
     IN name VARCHAR(255),
@@ -31,7 +38,9 @@ END$$
 
 DELIMITER ;
 
--- ====================> SP para inserir categorias
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UMA CATEGORIA
+-- -----------------------------------------------------
 DELIMITER $$
 
  CREATE PROCEDURE insert_category(
@@ -44,7 +53,9 @@ DELIMITER $$
 
 DELIMITER ;
 
-/* ====================> SP para inserir um editora */
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UMA EDITORA
+-- -----------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE insert_publisher(
     IN name VARCHAR(255),
@@ -58,7 +69,9 @@ END$$
 
 DELIMITER ;
 
--- ====================> SP para inserir livros 
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UM LIVRO
+-- -----------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE insert_book(
    IN title VARCHAR(50),
@@ -73,7 +86,9 @@ END$$
 
 DELIMITER ;
 
--- ====================> SP para inserir empréstimos
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UM EMPRÉSTIMO
+-- -----------------------------------------------------
 DELIMITER $$
 
 CREATE PROCEDURE insert_loan(
@@ -91,7 +106,9 @@ END$$
 
 DELIMITER ;
 
--- ====================> SP para inserir devoluções
+-- -----------------------------------------------------
+-- STORED PROCEDURE PARA INSERIR UMA DEVOLUÇÃO
+-- -----------------------------------------------------
 DELIMITER $$
 CREATE PROCEDURE insert_return(
    IN return_date DATE,
@@ -109,4 +126,3 @@ BEGIN
 END$$
 
 DELIMITER ;
-

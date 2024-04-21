@@ -1,121 +1,104 @@
--- ====================> TESTES DE CHAMADAS DAS SP de insert <====================
+-- -----------------------------------------------------
+-- TESTES DAS STORED PROCEDURES
+-- -----------------------------------------------------
 
--- inserindo o autor 1
--- CALL insert_author("Suzanne Collins", null, "
--- Suzanne Collins is an American author known for her successful Hunger Games series.", "United States of America", "suzzCollins@email.com", "hungerGamesPswd");
+-- -----------------------------------------------------
+-- TESTES DE INSERÇÃO
+-- -----------------------------------------------------
+-- Chamada de teste para insert_user
+CALL insert_user('John Doe', 'johndoe', 'johndoe@example.com', 'password123');
 
--- inserindo o autor 2
--- CALL insert_author("Dan Brown", null, "
--- Dan Brown is an American author famous for his bestselling novel The Da Vinci Code and its sequels.", "United States of America", "danBrown@email.com", "davinciPswd");
+-- Chamada de teste para insert_author
+CALL insert_author('Jane Austen', 'Unknown', 'English novelist known primarily for her six major noveles.', 'United Kingdom', 'janeausten@example.com', 'password123');
 
--- inserindo uma editora 1
--- CALL insert_publisher("Scholastic Press", "United States of America", 1920, "scholasticSupport@email.com");
+-- Chamada de teste para insert_category
+CALL insert_category('Fiction');
 
--- inserindo uma editora 2
--- CALL insert_publisher("Doubleday", "United States of America", 1897, "doubledaySupport@email.com");
+-- Chamada de teste para insert_publisher
+CALL insert_publisher('Penguin Books', 'United States', 1935, 'info@penguinbooks.com');
 
--- inserindo a categoria 1
--- CALL insert_category("Adventure");
+-- Chamada de teste para insert_book
+CALL insert_book('Pride and Prejudice', 'Pride and Prejudice is an 1813 romantic novel of manners written by Jane Austen.', 1, 1, 1);
 
--- inserindo a categoria 2
--- CALL insert_category("Mistery");
+-- Chamada de teste para insert_loan
+CALL insert_loan('2024-04-11', '2024-05-11', 0.0, 4, NULL, 1);
 
--- inserindo o livro 1
--- CALL insert_book("Hunger Games", "In a dystopian future, Katniss Everdeen volunteers to take her sister's place in a televised fight to the death known as the Hunger Games. 
--- With survival at stake, Katniss navigates treacherous challenges, challenging the oppressive regime of the Capitol. 
--- A gripping tale of resistance, sacrifice, and hope.", 1, 1, 1);
+-- Chamada de teste para insert_return
+CALL insert_return('2024-05-11', 4);
 
--- inserindo o livro 2
--- CALL insert_book("The Da Vinci Code", "Renowned symbologist Robert Langdon finds himself entangled in a thrilling quest to solve a murder and unravel an ancient secret guarded for centuries. 
--- tb_bookWith cryptic clues and relentless pursuit, Langdon races against time, unveiling shocking truths that challenge conventional beliefs about religion and history.", 2, 2, 2);
+-- -----------------------------------------------------
+-- TESTES DE UPDATE
+-- -----------------------------------------------------
+-- Chamada de teste para update_user
+CALL update_user(4, 'John Doe Updated', NULL, 'johndoe_updated@example.com', 'newpassword');
 
--- inserindo um usuario 1
--- CALL insert_user('Ted Mosby', 'tedmosby', 'ted@example.com', 'password123');
+-- Chamada de teste para update_author
+CALL update_author(3, 'Jane Austen Updated', NULL, NULL, NULL, 'janeausten_updated@example.com', 'newpassword');
 
--- inserindo um usuario 2
--- CALL insert_user('Michael Scofield', 'mscofield', 'michael@example.com', 'prisonbreak456');
+-- Chamada de teste para update_category
+CALL update_category(3, 'Non-fiction');
 
--- inserindo um usuário 3
--- CALL insert_user('Chris Brown', 'cb', 'cb@example.com', '11:11released');
+-- Chamada de teste para update_publisher
+CALL update_publisher(3, 'Penguin Books Updated', 'United States', 1935, 'info@penguinbooks.com');
 
--- DROP TRIGGER IF EXISTS UPDATE_DUE_DATE_BEFORE_INSERT;
--- DROP TRIGGER IF EXISTS VERIFY_NUM_LOAN_BEFORE_INSERT;
+-- Chamada de teste para update_book
+CALL update_book(3, 'Pride and Prejudice Updated', NULL, 3, 3, 3);
 
--- inserindo empréstimo do usuário 1
- -- CALL insert_loan('2024-04-12', null, 0.0, 1, NULL, 1);
+-- Chamada de teste para update_loan
+CALL update_loan(6, '2024-04-12', '2024-05-12', 0.0, 4, NULL, 3);
 
--- inserindo empréstimo do usuário 2
--- CALL insert_loan(NOW(), null, 0.0, 2, NULL, 1);
-
--- inserindo empréstimo do usuário 3
--- CALL insert_loan(NOW(), null, 0.0, 3, NULL, 1);
-
--- inserindo a devolução do empréstimo 2
--- CALL insert_return('2024-04-23', 1);
-
--- ====================> TESTES DE CHAMADAS DAS SP de delete <====================
-
--- <<<INSERINDO DADOS DE TESTE PARA SEREM EXCLUIDO>>>
--- inserindo o autor teste
--- CALL insert_author("J.R.R. Tolkien", null, "J.R.R. Tolkien was an English writer, poet, and philologist. He is best known as the author of the high fantasy works.", "United Kingdom", "tolkien@email.com", "middleearth");
-
--- inserindo uma editora teste
--- CALL insert_publisher("HarperCollins Publishers", "United States of America", 1989, "harpercollins@email.com");
-
--- inserindo a categoria teste
--- CALL insert_category("Fantasy");
-
--- inserindo o livro teste
--- CALL insert_book("The Hobbit", "The Hobbit is a fantasy novel by J.R.R. Tolkien. It follows the quest of home-loving hobbit Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon.", 1, 1, 1);
-
--- inserindo um usuario teste
--- CALL insert_user('Harry Potter', 'hpotter', 'harrypotter@example.com', 'gryffindor123');
-
--- deletando um usuario
--- CALL delete_user(3);
-
--- deletando um livro
--- CALL delete_book(3);
-
--- deletando uma editora
--- CALL delete_publisher(5);
-
--- deletando um autor
--- CALL delete_author(5);
-
--- deletando uma categoria
--- CALL delete_category(3, "Fantasy");
-
--- ====================> TESTES DE CHAMADAS DAS SP de UPDATE <====================
-
--- <<<INSERINDO DADOS DE TESTE PARA SEREM ATUALIZADOS>>>
--- inserindo o autor teste
--- adicionando um nome incorreto
--- CALL insert_author("J.R.R. Williams", null, "J.R.R. Tolkien was an English writer, poet, and philologist. He is best known as the author of the high fantasy works.", "United Kingdom", "tolkien@email.com", "middleearth");
-
--- inserindo uma editora teste
--- inserindo a data de fundação incorreta
--- correção: 1989
--- CALL insert_publisher("HarperCollins Publishers", "United States of America", 2023, "harpercollins@email.com");
-
--- inserindo a categoria teste
--- nome escrito incorretamente
--- correção: Fantasy
--- CALL insert_category("Fantasi");
-
--- inserindo o livro teste
--- inserindo uma sinopse incorreta
--- correção: "The Hobbit is a fantasy novel by J.R.R. Tolkien. It follows the quest of home-loving hobbit Bilbo Baggins to win a share of the treasure guarded by Smaug the dragon."
--- CALL insert_book("The Hobbit", "The Hobbit is a science fiction novel by J.R.R. Tolkien. It follows the quest of space-faring hobbit Bilbo Baggins to win a share of the treasure guarded by aliens on Mars.", 1, 1, 1);
-
--- inserindo um usuario teste
--- inserindo um email no incorreto
--- correção: marshallBruceEmnm@email.com
--- CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
+-- Chamada de teste para update_return
+CALL update_return(1, '2024-05-12');
 
 
--- --------------------------------------
--- INSERINDO USUÁRIOS APÓS AS TRIGGERS
--- --------------------------------------
--- CALL insert_user('Marshall Bruce', 'whiteRapper', 'marshBurssfdaf@wrongemail.com', 'christinaAguileraLOL');
+-- -----------------------------------------------------
+-- TESTES DE DELETAR
+-- -----------------------------------------------------
+-- Chamada de teste para delete_loan
+CALL delete_loan(6, 4, 3, '2024-04-11');
+
+-- Chamada de teste para delete_return
+CALL delete_return(1);
+
+-- Chamada de teste para delete_author
+CALL delete_author(3);
+
+-- Chamada de teste para delete_category
+CALL delete_category(3, 'Fiction');
+
+-- Chamada de teste para delete_publisher
+CALL delete_publisher(3);
+
+-- Chamada de teste para delete_book
+CALL delete_book(3);
+
+-- Chamada de teste para delete_user
+CALL delete_user(4);
+
+-- -----------------------------------------------------
+-- TESTES DAS VIEWS
+-- -----------------------------------------------------
+-- Visualização `book_loan_info`
+SELECT * FROM book_loan_info;
+
+-- Visualização `user_loan_info`
+SELECT * FROM user_loan_info;
+
+-- Visualização `author_book_info`
+SELECT * FROM author_book_info;
+
+-- Visualização `loan_info`
+SELECT * FROM loan_info;
+
+-- Visualização `publisher_info`
+SELECT * FROM publisher_info;
+
+-- Visualização `category_info`
+SELECT * FROM category_info;
+
+
+
+
+
+
 
